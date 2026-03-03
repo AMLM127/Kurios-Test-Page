@@ -1,0 +1,115 @@
+:root {
+    --bg-teal: #008080;
+    --win-gray: #c0c0c0;
+    --win-blue: #000080;
+}
+
+body {
+    background-color: var(--bg-teal);
+    margin: 0;
+    font-family: 'Tahoma', sans-serif;
+    overflow: hidden;
+}
+
+#desktop {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Icons */
+.icon {
+    width: 80px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+.icon-img { font-size: 40px; }
+.icon span { font-size: 12px; background: rgba(0,0,0,0.5); padding: 2px; }
+
+/* Windows */
+.window {
+    position: absolute;
+    background: var(--win-gray);
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    width: 400px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+#terminal-win{
+    width: 800px;
+    height: 800px;
+}
+
+
+.title-bar {
+    background: var(--win-blue);
+    color: white;
+    padding: 3px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.window-content {
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+}
+
+.term-body { background: black; color: #00ff41; font-family: monospace; height:755px}
+.file-body { background: white; color: black; }
+
+.close { width: 18px; height: 18px; font-size: 10px; cursor: pointer; }
+
+input {
+    background: transparent;
+    border: none;
+    color: #00ff41;
+    outline: none;
+    width: 90%;
+    font-family: monospace;
+}
+
+/* HOVER PUZZLE INSIDE FILE */
+.hidden-hover {
+    color: rgba(255, 255, 255, 0); /* Invisible against white background */
+    transition: color 0.5s;
+    cursor: help;
+}
+.hidden-hover:hover { color: red; font-weight: bold; }
+
+/* Taskbar */
+#taskbar {
+    height: 40px;
+    background: var(--win-gray);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-top: 2px solid #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.encrypted-text {
+    font-family: 'Courier New', monospace;
+    color: #666;
+    background: #e0e0e0;
+    user-select: none;
+    filter: blur(1px); /* Efecto de texto borroso */
+}
+
+.decrypted-text {
+    color: #000;
+    font-weight: bold;
+    border-left: 3px solid #000080;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    animation: scanline 0.2s steps(2) infinite; /* Opcional: efecto de parpadeo al desbloquear */
+}
